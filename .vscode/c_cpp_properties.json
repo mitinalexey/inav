@@ -1,10 +1,55 @@
-{
+{   
+     "env": {
+        "myTarget": "MITINF435N1",
+        "myConfig": ""
+    },
     "configurations": [
         {
             "name": "Linux",
             "includePath": [
+                "${workspaceRoot}/src/main/target/${myTarget}",
                 "${workspaceRoot}",
-                "${workspaceRoot}/src/main/**"
+                "${workspaceRoot}/src/",
+                "${workspaceRoot}/src/main/",
+                "${workspaceRoot}/src/main/blackbox/",
+                "${workspaceRoot}/src/main/build/",
+                "${workspaceRoot}/src/main/cms/",
+                "${workspaceRoot}/src/main/common/",
+                "${workspaceRoot}/src/main/config/",
+                "${workspaceRoot}/src/main/drivers/",
+                "${workspaceRoot}/src/main/drivers/1-wire/",
+                "${workspaceRoot}/src/main/drivers/accgyro/",
+                "${workspaceRoot}/src/main/drivers/barometer/",
+                "${workspaceRoot}/src/main/drivers/compass/",
+                "${workspaceRoot}/src/main/drivers/opflow/",
+                "${workspaceRoot}/src/main/drivers/pitotmeter/",
+                "${workspaceRoot}/src/main/drivers/rangefinder/",
+                "${workspaceRoot}/src/main/drivers/sdcard/",
+                "${workspaceRoot}/src/main/drivers/temperature/",
+                "${workspaceRoot}/src/main/fc/",
+                "${workspaceRoot}/src/main/flight/",
+                "${workspaceRoot}/src/main/io/",
+                "${workspaceRoot}/src/main/msc/",
+                "${workspaceRoot}/src/main/msp/",
+                "${workspaceRoot}/src/main/navigation/",
+                "${workspaceRoot}/src/main/programming/",
+                "${workspaceRoot}/src/main/rx/",
+                "${workspaceRoot}/src/main/scheduler/",
+                "${workspaceRoot}/src/main/sensors/",
+                "${workspaceRoot}/src/main/startup/",
+                "${workspaceRoot}/src/main/target/",
+                "${workspaceRoot}/src/main/telemetry/",
+                "${workspaceRoot}/src/main/vcp/",
+                "${workspaceRoot}/src/main/vcp_hal/",
+                "${workspaceRoot}/src/main/vcpf4/",
+
+                "${workspaceRoot}/lib/main/AT32F43x/**",
+                "${workspaceRoot}/lib/main/AT32F43x/Drivers/AT32F43x_StdPeriph_Driver/inc/",
+                "${workspaceRoot}/lib/main/AT32F43x/Drivers/AT32F43x_StdPeriph_Driver/src/",
+                "${workspaceRoot}/lib/main/AT32F43x/Drivers/CMSIS/cm4/core_support/",
+                "${workspaceRoot}/lib/main/AT32F43x/Drivers/CMSIS/Device/ST/AT32F43x/",
+
+                ""
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": false,
@@ -53,7 +98,9 @@
                 "USE_GYRO_FFT_FILTER",
                 "USE_BARO_DPS310",
                 "USE_ADAPTIVE_FILTER",
-                "MCU_FLASH_SIZE 1024"
+                "MCU_FLASH_SIZE 1024",
+                "AT32F435RGT7",
+                "AT32F43x"
             ],
             "configurationProvider": "ms-vscode.cmake-tools"
         }
