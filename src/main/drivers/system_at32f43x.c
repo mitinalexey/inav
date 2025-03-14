@@ -38,6 +38,8 @@ void enableGPIOPowerUsageAndNoiseReductions(void)
         CRM_GPIOC_PERIPH_CLOCK    |
         CRM_GPIOD_PERIPH_CLOCK    |
         CRM_GPIOE_PERIPH_CLOCK    |
+        CRM_GPIOH_PERIPH_CLOCK    |
+        CRM_SCFG_PERIPH_CLOCK     |
         CRM_DMA1_PERIPH_CLOCK     |
         CRM_DMA2_PERIPH_CLOCK     |
         0,TRUE);
@@ -90,6 +92,7 @@ void enableGPIOPowerUsageAndNoiseReductions(void)
     gpio_init_struct.gpio_pins = GPIO_PINS_ALL;
     gpio_init_struct.gpio_pins &= ~(GPIO_PINS_12|GPIO_PINS_11|GPIO_PINS_9); // leave USB D+/D- alone
     gpio_init_struct.gpio_pins &= ~(GPIO_PINS_14|GPIO_PINS_15|GPIO_PINS_13); // leave JTAG pins alone
+    gpio_init_struct.gpio_pins &= ~(GPIO_PINS_8); // leave clkout1 OSD 27MHz pins alone
     gpio_init(GPIOA, &gpio_init_struct);
 
     gpio_init_struct.gpio_pins = GPIO_PINS_ALL;
@@ -98,6 +101,7 @@ void enableGPIOPowerUsageAndNoiseReductions(void)
     gpio_init(GPIOD, &gpio_init_struct);
     gpio_init(GPIOE, &gpio_init_struct);
     gpio_init(GPIOF, &gpio_init_struct);
+    gpio_init(GPIOH, &gpio_init_struct);
 }
 
 bool isMPUSoftReset(void)

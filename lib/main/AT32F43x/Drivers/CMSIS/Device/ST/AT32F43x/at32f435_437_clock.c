@@ -36,21 +36,55 @@
   */
 
 /**
+  * @brief  init clkout1 function
+  * @param  none
+  * @retval none
+  */
+ void wk_clkout1_init(void)
+ {
+   gpio_init_type gpio_init_struct;
+ 
+   /* enable periph clock */
+   crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
+ 
+   /* set default parameter */
+   gpio_default_para_init(&gpio_init_struct);
+   /* config gpio mux function */
+   gpio_pin_mux_config(GPIOA, GPIO_PINS_SOURCE8, GPIO_MUX_0);
+   /* config gpio */
+   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
+   gpio_init_struct.gpio_out_type  = GPIO_OUTPUT_PUSH_PULL;
+   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
+   gpio_init_struct.gpio_pins = GPIO_PINS_8;
+   gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+   gpio_init(GPIOA, &gpio_init_struct);
+ 
+   /* config clkout1 output clock source */
+   crm_clock_out1_set(CRM_CLKOUT1_PLL);
+   /* config clkout1 div */
+   crm_clkout_div_set(CRM_CLKOUT_INDEX_1, CRM_CLKOUT_DIV1_5, CRM_CLKOUT_DIV2_2);
+ }
+
+/**
   * @brief  system clock config program
   * @note   the system clock is configured as follow:
-  *         - system clock        = (hext * pll_ns)/(pll_ms * pll_fr)
-  *         - system clock source = pll (hext)
-  *         - hext                = 8000000
-  *         - sclk                = 288000000
+  *         system clock (sclk)   = (hext * pll_ns)/(pll_ms * pll_fr)
+  *         system clock source   = HEXT_VALUE
+  *         - lick                = on
+  *         - lext                = off
+  *         - hick                = on
+  *         - hext                = off
+  *         - hext                = HEXT_VALUE
+  *         - sclk                = 270000000
   *         - ahbdiv              = 1
-  *         - ahbclk              = 288000000
-  *         - apb2div             = 2
-  *         - apb2clk             = 144000000
+  *         - ahbclk              = 270000000
   *         - apb1div             = 2
-  *         - apb1clk             = 144000000
-  *         - pll_ns              = 72
-  *         - pll_ms              = 1
-  *         - pll_fr              = 2
+  *         - apb1clk             = 135000000
+  *         - apb2div             = 2
+  *         - apb2clk             = 135000000
+  *         - pll_ns              = 216
+  *         - pll_ms              = 5
+  *         - pll_fr              = 4
   * @param  none
   * @retval none
   */
@@ -91,7 +125,7 @@ void system_clock_config(void)
 
   if pll clock source selects hext with other frequency values, or configure pll to other
   frequency values, please use the at32 new clock  configuration tool for configuration.  */
-  crm_pll_config(CRM_PLL_SOURCE_HEXT, 72, 1, CRM_PLL_FR_2);
+  crm_pll_config(CRM_PLL_SOURCE_HEXT, 216, 5, CRM_PLL_FR_4);
 
   /* enable pll */
   crm_clock_source_enable(CRM_CLOCK_SOURCE_PLL, TRUE);
@@ -125,11 +159,14 @@ void system_clock_config(void)
   crm_auto_step_mode_enable(FALSE);
 
   /* config usbclk from pll */
-  crm_usb_clock_div_set(CRM_USB_DIV_6);
-  crm_usb_clock_source_select(CRM_USB_CLOCK_SOURCE_PLL);
+  //crm_usb_clock_div_set(CRM_USB_DIV_6);
+  //crm_usb_clock_source_select(CRM_USB_CLOCK_SOURCE_PLL);
   
   /* update system_core_clock global variable */
   system_core_clock_update();
+
+  /* clkout1 OSD 27MHz */
+  wk_clkout1_init();
 }
 
 /**

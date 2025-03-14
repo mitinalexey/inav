@@ -117,7 +117,7 @@ void SystemInit (void)
   */
 void system_core_clock_update(void)
 {
-  uint32_t pll_ns = 0, pll_ms = 0, pll_fr = 0, pll_clock_source = 0, pllrcsfreq = 0;
+  float pll_ns = 0, pll_ms = 0, pll_fr = 0, pll_clock_source = 0, pllrcsfreq = 0;
   uint32_t temp = 0, div_value = 0;
   crm_sclk_type sclk_source;
 

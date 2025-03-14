@@ -465,7 +465,7 @@ void usbVcpInitHardware(void)
      crm_periph_clock_enable(OTG_CLOCK, TRUE);
 
      /* select usb 48m clcok source */
-     usb_clock48m_select(USB_CLK_HEXT);
+     usb_clock48m_select(USB_CLK_HICK);
 
      /* enable otgfs irq,cannot set too high priority */
      nvic_irq_enable(OTG_IRQ,NVIC_PRIO_USB,0);
