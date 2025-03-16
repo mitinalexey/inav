@@ -42,30 +42,12 @@
 #define LED0                PC13
 #define LED1                PC14
 #define LED2                PC15
-//#define LED0                    PC4
-//#define LED1                    PD14
 
 //#define BEEPER                  PC15
 //#define BEEPER_INVERTED
 
 // *************** Gyro & ACC **********************
 #define USE_SPI
-/*
-#define USE_SPI_DEVICE_1
-
-#define SPI1_SCK_PIN            PA5
-#define SPI1_MISO_PIN           PA6
-#define SPI1_MOSI_PIN           PA7
-#define SPI1_NSS_PIN            PA15
-*/
-
-/*
-#define GYRO_1_EXTI_PIN         PA15
-#define GYRO_1_CS_PIN           PB12
-#define SPI2_SCK_PIN            PB13 // sck
-#define SPI2_SDI_PIN            PB14 // miso
-#define SPI2_SDO_PIN            PB15 // mosi
-*/
 #define USE_SPI_DEVICE_2 
 
 #define SPI2_SCK_PIN            PB13
@@ -73,18 +55,22 @@
 #define SPI2_MOSI_PIN           PB15
 #define SPI2_NSS_PIN            PB12 
 
-// BMI270
-#define USE_IMU_BMI270
-#define IMU_BMI270_ALIGN        CW180_DEG
-#define BMI270_SPI_BUS          BUS_SPI2
-#define BMI270_CS_PIN           SPI2_NSS_PIN
+// QMI8658
+#define USE_IMU_QMI8658
+#define IMU_QMI8658_ALIGN       CW0_DEG
+#define QMI8658_SPI_BUS         BUS_SPI2
+#define QMI8658_CS_PIN          SPI2_NSS_PIN
 
 // *************** I2C/Baro/Mag/EXT*********************
 #define USE_I2C
+#define USE_I2C_DEVICE_1
+#define I2C1_SCL                PB8
+#define I2C1_SDA                PB9
+
 #define USE_I2C_DEVICE_2
 #define I2C2_SCL                PH2        
 #define I2C2_SDA                PH3       
-//#define USE_I2C_PULLUP
+// #define USE_I2C_PULLUP
 
 #define USE_BARO
 #define BARO_I2C_BUS            BUS_I2C2
@@ -114,30 +100,11 @@
 #define SPI1_MISO_PIN           PB4
 #define SPI1_MOSI_PIN           PB5
 
-/*
-#define FLASH_SPI_INSTANCE      SPI1
-#define MAX7456_SPI_INSTANCE    SPI1
-
-#define FLASH_CS_PIN            PB6
-#define MAX7456_SPI_CS_PIN      PB7
-#define USE_MCO
-#define SPI1_SCK_PIN            PB3 // sck
-#define SPI1_SDI_PIN            PB4 // miso
-#define SPI1_SDO_PIN            PB5 // mosi
-*/
 #define USE_MAX7456
 #define MAX7456_SPI_BUS         BUS_SPI1
 #define MAX7456_CS_PIN          MAX7456_SPI_CS_PIN
 
-
 // *************** SD/BLACKBOX **************************
-/*
-#define USE_SPI_DEVICE_3
-#define SPI3_SCK_PIN            PB3
-#define SPI3_MISO_PIN   	    PB4
-#define SPI3_MOSI_PIN   	    PB5
-#define SPI3_NSS_PIN 			PB9 //confirm on lqfp64
-*/  
 #define ENABLE_BLACKBOX_LOGGING_ON_SPIFLASH_BY_DEFAULT
 #define USE_FLASHFS
 #define USE_FLASH_M25P16
@@ -173,15 +140,24 @@
 #define UART5_RX_PIN            PD2
 #define UART5_TX_PIN            PC12
 
+#define USE_UART6
+#define UART6_RX_PIN            PC7
+#define UART6_TX_PIN            PC6
+
 #define USE_UART8
 #define UART8_RX_PIN            PC3
 #define UART8_TX_PIN            PC8
 
-#define SERIAL_PORT_COUNT       6
+#define SERIAL_PORT_COUNT       7
 
 #define DEFAULT_RX_TYPE         RX_TYPE_SERIAL
 #define SERIALRX_PROVIDER       SERIALRX_CRSF
 #define SERIALRX_UART           SERIAL_PORT_USART5
+
+// *************** PINIO ***************************
+#define USE_PINIO
+#define USE_PINIOBOX
+#define PINIO1_PIN              PB2     //#define CAMERA SWITCH CONTROL
 
 // *************** ADC *****************************
 #define USE_ADC
