@@ -81,6 +81,10 @@
     #if defined(USE_IMU_LSM6DXX)
         BUSDEV_REGISTER_SPI(busdev_lsm6dxx,      DEVHW_LSM6D,       LSM6DXX_SPI_BUS,     LSM6DXX_CS_PIN,      NONE,  DEVFLAGS_NONE,  IMU_LSM6DXX_ALIGN);
     #endif
+    
+    #if defined(USE_IMU_QMI8658)
+        BUSDEV_REGISTER_SPI(busdev_qmi8658,     DEVHW_QMI8658,      QMI8658_SPI_BUS,    QMI8658_CS_PIN,     NONE,  DEVFLAGS_NONE,  IMU_QMI8658_ALIGN);
+    #endif
 
 #endif
 

@@ -41,6 +41,10 @@
 #error "Replace USE_GYRO_xxx and USE_ACC_xxx with USE_IMU_xxx"
 #endif
 
+#if defined (USE_GYRO_QMI8658) || defined (USE_ACC_QMI8658)
+#error "Replace USE_GYRO_xxx and USE_ACC_xxx with USE_IMU_xxx"
+#endif
+
 #if defined (USE_FAKE_GYRO) || defined (USE_FAKE_ACC)
 #error "Replace USE_GYRO_xxx and USE_ACC_xxx with USE_IMU_xxx"
 #endif
@@ -67,4 +71,8 @@
 
 #if defined (GYRO_ICM20689_ALIGN) || defined (ACC_ICM20689_ALIGN)
 #error "Replace GYRO_ICM20689_ALIGN and ACC_ICM20689_ALIGN with IMU_ICM20689_ALIGN"
+#endif
+
+#if defined (GYRO_QMI8658_ALIGN) || defined (ACC_QMI8658_ALIGN)
+#error "Replace GYRO_QMI8658_ALIGN and ACC_QMI8658_ALIGN with IMU_QMI8658_ALIGN"
 #endif
