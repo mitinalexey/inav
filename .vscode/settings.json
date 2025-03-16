@@ -1,4 +1,11 @@
 {
+    
+    "cortex-debug.armToolchainPath": "c:/OneDrive/HTOA/FlyController/Soft/Source/github/betaflight/tools/arm-gnu-toolchain-13.2.Rel1/bin",
+    "cortex-debug.gdbPath": "c:/OneDrive/HTOA/FlyController/Soft/Source/github/betaflight/tools/arm-gnu-toolchain-13.2.Rel1/bin/arm-none-eabi-gdb",
+    "cortex-debug.openocdPath": "C:/AT32IDE/OpenOCD/bin/openocd.exe",
+    "cortex-debug.variableUseNaturalFormat": true,
+    "cortex-debug.liveWatchRefreshRate": 300,
+   
     "files.associations": {
         "chrono": "c",
         "cmath": "c",
@@ -12,12 +19,27 @@
         "serial.h": "c",
         "color.h": "c",
         "system.h": "c",
-        "at32f435_437_clock.h": "c"
+        "at32f435_437_clock.h": "c",
+        "usb_conf.h": "c",
+        "serial_usb_vcp_at32f43x.h": "c",
+        "arm_math.h": "c",
+        "scheduler.h": "c",
+        "battery.h": "c",
+        "barometer.h": "c",
+        "boardalignment.h": "c",
+        "settings.h": "c",
+        "stdbool.h": "c",
+        "target.h": "c",
+        "accgyro.h": "c",
+        "accgyro_qmi8658.h": "c",
+        "accgyro_bmi270.h": "c",
+        "cstdint": "c"
     },
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
     "editor.expandTabs": true,
-    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4,  BreakBeforeBraces: Mozilla }"
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4,  BreakBeforeBraces: Mozilla }",
+    "C_Cpp.dimInactiveRegions": false
 
 }
