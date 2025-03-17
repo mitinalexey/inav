@@ -148,7 +148,7 @@
 #define UART8_RX_PIN            PC3
 #define UART8_TX_PIN            PC8
 
-#define SERIAL_PORT_COUNT       7
+#define SERIAL_PORT_COUNT       8
 
 #define DEFAULT_RX_TYPE         RX_TYPE_SERIAL
 #define SERIALRX_PROVIDER       SERIALRX_CRSF
@@ -164,9 +164,13 @@
 #define ADC_INSTANCE                ADC1
 
 #define ADC1_DMA_STREAM             DMA2_CHANNEL1
-#define ADC_CHANNEL_1_PIN           PC1
-#define ADC_CHANNEL_2_PIN           PC0
-#define ADC_CHANNEL_3_PIN           PC2
+#define ADC_CHANNEL_1_PIN           PC1  // VBAT1
+#define ADC_CHANNEL_2_PIN           PC0  // CURR1
+#define ADC_CHANNEL_3_PIN           PC2  // RSSI
+#define ADC_CHANNEL_4_PIN           PA4  // VB2
+#define ADC_CHANNEL_5_PIN           PA0  // CU2
+
+#define VBAT_SCALE_DEFAULT 1100
 
 #define VBAT_ADC_CHANNEL            ADC_CHN_1
 #define CURRENT_METER_ADC_CHANNEL   ADC_CHN_2
